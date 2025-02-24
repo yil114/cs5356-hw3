@@ -1,0 +1,53 @@
+section {
+  margin-left: 75px;
+  margin-right: 75px;
+  overflow: hidden;
+}
+#welcome-section {
+  border: 1px solid blue;
+}
+
+#walks-section {
+  margin-top: 10px;
+  border: 1px solid #87ffa1;
+}
+
+#portrait {
+  width: 220px;
+  height: 275px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.flexbox-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexbox-row {
+  display: flex;
+}
+
+.div-location {
+  flex: 1;
+}
+
+.div-description {
+  flex; 2;
+}
+
+/*
+.div1 {
+  width: 500px;
+  height: 500px;
+  background-color: red;
+}
+
+.div2 {
+  width: 500px;
+  height: 500px;
+  background-color: blue;
+}
+*/
