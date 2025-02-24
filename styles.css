@@ -1,7 +1,24 @@
+body, table {
+  font-size: 1rem !important;
+  transition: .3s ease;
+}
+
+@media(max-width: 500px) {
+  body, table {
+    font-size: .6rem !important;
+  }
+}
+td {
+  border: 1px solid black;
+}
+table {
+  width: 100%;
+}
 section {
   margin-left: 75px;
   margin-right: 75px;
   overflow: hidden;
+  padding-inline: 25px;
 }
 #welcome-section {
   border: 1px solid blue;
@@ -10,13 +27,17 @@ section {
 #walks-section {
   margin-top: 10px;
   border: 1px solid #87ffa1;
+  margin-bottom: 500px;
 }
 
 #portrait {
-  width: 220px;
-  height: 275px;
+  width: 50%;
+  height: auto;
 }
 
+#quick-facts {
+  margin-bottom: 10px;
+}
 .center-text {
   text-align: center;
 }
@@ -28,26 +49,36 @@ section {
 
 .flexbox-row {
   display: flex;
+  justify-content: center;
 }
 
 .div-location {
+  text-align: center;
   flex: 1;
+  padding-right: 10px;
 }
 
 .div-description {
-  flex; 2;
+  flex: 2;
+  max-width: 0;
+  max-height: 0;
+  visibility: hidden;
+  transition: .3s ease;
 }
 
-/*
-.div1 {
-  width: 500px;
-  height: 500px;
-  background-color: red;
+.flexbox-row:hover {
+  color: #BC5CF7;
+}
+.flexbox-row:hover .div-description {
+  max-width: none;
+  max-height: none;
+  visibility: visible;
+  transition: .3s ease;
 }
 
-.div2 {
-  width: 500px;
-  height: 500px;
-  background-color: blue;
+.flexbox-row:not(:hover) .div-location {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-*/
