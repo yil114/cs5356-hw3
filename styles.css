@@ -63,17 +63,16 @@ section {
   max-width: 0;
   max-height: 0;
   visibility: hidden;
-  transition: .3s ease;
 }
 
 .flexbox-row:hover {
   color: #BC5CF7;
 }
 .flexbox-row:hover .div-description {
-  max-width: none;
+  max-width: 100%;
   max-height: none;
   visibility: visible;
-  transition: .3s ease;
+  transition: 1s ease;
 }
 
 .flexbox-row:not(:hover) .div-location {
