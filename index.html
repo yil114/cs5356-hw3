@@ -1,5 +1,8 @@
 <html>
   <head>
+    <title>Waffles' House</title>
+    <meta property="og:title" content="Waffles' House"/>
+    <meta property="og:image" content="waffles-portrait.png"/>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -9,6 +12,7 @@
     <section id="welcome-section">
       <h3>Welcome!</h3>
       <img src="waffles-portrait.png" alt="Waffles Portrait" id="portrait"/>
+      <div id="treat"></div>
       <p>A-woof, woof! *sniff* Oh, I mean, nice to meet you!</p>
       <p>My name is Waffles, and I'm a stuffed dog adopted by my mommy, Yi. I love being petted and playing with humans. I'm barely one year old, but I'm paw-sitive we'll get along. Click around my website to learn more about me!</p>
       <details id="quick-facts">
@@ -24,7 +28,11 @@
           </tr>
           <tr>
             <td>Special traits</td>
-            <td>I can be microwaved and warm up the humans around me!
+            <td>I can be microwaved and warm up the humans around me!</td>
+          </tr>
+          <tr>
+            <td>Favorite joke (today)</td>
+            <td><p id="joke-1">Thinking...</p><p id="joke-2"></p></td>
           </tr>
         </table>
       </details>
@@ -48,7 +56,35 @@
 
       </div>
     </section>
-    
+    <script>
+      async function fetchData() {
+        const url = "https://v2.jokeapi.dev/joke/Any?safe-mode";
+        try {
+          const response = await fetch(url);
+          const json = await response.json();
+          console.log(json);
+          if (json.type === 'single') {
+            document.getElementById('joke-1').textContent = json.joke;
+          } else {
+            document.getElementById('joke-1').textContent = json.setup;
+            document.getElementById('joke-2').textContent = json.delivery;
+          }
+        }
+        catch (err) {
+          console.error(err.message);
+        }
+      }
+      let timer;
 
+      function onMouseOverEvent(event) {
+        document.getElementById('treat').textContent = '*sniff* Is that a treat?! *pants*';
+        clearTimeout(timer);
+        timer = setTimeout(()=>{document.getElementById('treat').textContent = "";}, 1000);
+      }
+      const img = document.getElementById('portrait');
+      img.addEventListener('mousemove', onMouseOverEvent);
+      fetchData();
+
+    </script>
   </body>
 </html>
